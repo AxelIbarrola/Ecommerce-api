@@ -7,7 +7,7 @@ const register = async(req, res, next) => {
 
     try {
 
-        const { email, password } = req.body
+        const { email, password, role } = req.body
 
         const existingUser = await User.findOne({ where: { email } })
 
@@ -20,7 +20,8 @@ const register = async(req, res, next) => {
 
         const newUser = await User.create({
             email,
-            password: hashedPassword
+            password: hashedPassword,
+            role: role || 'user'
         })
 
         const accessToken = createAccessToken({
@@ -43,6 +44,7 @@ const register = async(req, res, next) => {
             user: {
                 id: newUser.id,
                 email: newUser.email,
+                role: newUser.role,
                 createdAt: newUser.createdAt
             },
             accessToken,
