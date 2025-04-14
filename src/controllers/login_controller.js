@@ -23,12 +23,14 @@ const login = async (req, res, next) => {
 
         const accessToken = createAccessToken({
             id: existingUser.id,
-            email: existingUser.email
+            email: existingUser.email,
+            role: existingUser.role
         })
 
         const refreshToken = createRefreshToken({
             id: existingUser.id,
-            email: existingUser.email
+            email: existingUser.email,
+            role: existingUser.role
         })
 
         await RefreshToken.create({
@@ -40,7 +42,8 @@ const login = async (req, res, next) => {
             message: 'Logueado correctamente.',
             user: {
                 id: existingUser.id,
-                email: existingUser.email
+                email: existingUser.email,
+                role: existingUser.role
             },
             accessToken,
             refreshToken

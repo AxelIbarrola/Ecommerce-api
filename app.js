@@ -12,6 +12,8 @@ const refresh_token_routes = require('./src/routes/refresh_token_routes')
 const logout_routes = require('./src/routes/logout_routes')
 const logoutAll_routes = require('./src/routes/logoutAll_routes')
 const createProduct_routes = require('./src/routes/createProduct_routes')
+const deleteProduct_routes = require('./src/routes/deleteProduct_routes')
+
 
 
 app.use(express.json())
@@ -27,6 +29,8 @@ app.use('/api/auth', refresh_token_routes)
 app.use('/api', logout_routes)
 app.use('/api', logoutAll_routes)
 app.use('/api', createProduct_routes)
+app.use('/api', deleteProduct_routes)
+
 
 app.listen(PORT, () => {
     console.log(`✅ Servidor corriendo en el puerto: ${PORT}`)}

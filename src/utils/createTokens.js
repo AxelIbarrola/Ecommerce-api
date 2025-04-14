@@ -5,7 +5,8 @@ const createAccessToken = (user)  => {
     const payload = {
         user: {
             id: user.id,
-            email: user.email
+            email: user.email,
+            role: user.role
         }
     }
 
@@ -20,7 +21,8 @@ const createRefreshToken = (user)  => {
     const payload = {
         user: {
             id: user.id,
-            email: user.email
+            email: user.email,
+            role: user.role
         }
     }
 

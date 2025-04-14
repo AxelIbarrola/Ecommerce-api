@@ -26,12 +26,14 @@ const register = async(req, res, next) => {
 
         const accessToken = createAccessToken({
             id: newUser.id,
-            email: newUser.email
+            email: newUser.email,
+            role: newUser.role
         })
 
         const refreshToken = createRefreshToken({
             id: newUser.id,
-            email: newUser.email
+            email: newUser.email,
+            role: newUser.role
         })
 
         await RefreshToken.create({
