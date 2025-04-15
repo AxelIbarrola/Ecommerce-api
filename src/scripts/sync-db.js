@@ -2,6 +2,7 @@ const { sequelize } = require('../config/database');
 const { User } = require('../models/User');
 const { RefreshToken } = require('../models/RefreshToken');
 const { Product } = require('../models/Product')
+const { Cart } = require('../models/Cart')
 
 
 const sync = async () => {
