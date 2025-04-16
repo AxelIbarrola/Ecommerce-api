@@ -11,7 +11,7 @@ const createAccessToken = (user)  => {
     }
 
     const tokenAccess = jwt.sign(payload, process.env.JWT_ACCESS_SECRET, {
-        expiresIn: '30m'
+        expiresIn: '5m'
     })
 
     return tokenAccess

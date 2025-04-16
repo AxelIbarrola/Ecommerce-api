@@ -15,8 +15,9 @@ const createProduct_routes = require('./src/routes/createProduct_routes')
 const deleteProduct_routes = require('./src/routes/deleteProduct_routes')
 const modifyProduct_routes = require('./src/routes/modifyProduct_routes')
 const getAllProducts_routes = require('./src/routes/getAllProducts_routes')
-const getProductsById_routes = require('./src/routes/getProductsById._routes')
-
+const getProductsById_routes = require('./src/routes/getProductsById_routes')
+const createCart_routes = require('./src/routes/createCart_routes')
+const addProduct_routes = require('./src/routes/addProduct_routes')
 
 app.use(express.json())
 
@@ -35,7 +36,8 @@ app.use('/api', deleteProduct_routes)
 app.use('/api', modifyProduct_routes)
 app.use('/api', getAllProducts_routes)
 app.use('/api', getProductsById_routes)
-
+app.use('/api/cart', createCart_routes)
+app.use('/api/cart', addProduct_routes)
 
 app.listen(PORT, () => {
     console.log(`✅ Servidor corriendo en el puerto: ${PORT}`)}
