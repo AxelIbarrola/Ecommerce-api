@@ -20,7 +20,9 @@ const createCart_routes = require('./src/routes/createCart_routes')
 const addProduct_routes = require('./src/routes/addProduct_routes')
 const getCart_routes = require('./src/routes/getCart_routes')
 const eliminatedProduct_routes = require('./src/routes/eliminatedProduct_routes')
-const subtractProduct_routes = require('./src/routes/subtractProduct_controller')
+const subtractProduct_routes = require('./src/routes/subtractProduct_routes')
+const checkout_routes = require('./src/routes/checkout_routes')
+
 
 
 
@@ -47,10 +49,7 @@ app.use('/api/cart', addProduct_routes)
 app.use('/api/cart', getCart_routes)
 app.use('/api/cart', eliminatedProduct_routes)
 app.use('/api/cart', subtractProduct_routes)
-
-
-
-
+app.use('/api/cart', checkout_routes)
 
 
 app.listen(PORT, () => {
