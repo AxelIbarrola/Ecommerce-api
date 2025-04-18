@@ -52,3 +52,5 @@ Cart.belongsToMany(Product, {
     foreignKey: 'cartId',
     otherKey: 'productId'
 })
+
+module.exports = { CartItem }

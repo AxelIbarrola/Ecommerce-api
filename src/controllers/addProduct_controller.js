@@ -1,7 +1,6 @@
 const { Cart } = require('../models/Cart')
 const { Product } = require('../models/Product')
 const { CartItem } = require('../models/CartItem')
-const { where } = require('sequelize')
 
 const addProduct = async (req, res, next) => {
 
@@ -34,11 +33,16 @@ const addProduct = async (req, res, next) => {
             cartItem = await CartItem.create({
                 cartId: activeCart.id,
                 productId,
-                quantity
+                quantity,
+                priceAtPurchase: product.price
             })
         }
 
-        activeCart.totalPrice += product.price * quantity
+
+        const price = parseFloat(product.price)
+        const currentTotal = parseFloat(activeCart.totalPrice)
+
+        activeCart.totalPrice =  currentTotal + (price * quantity)
         await activeCart.save()
 
 
