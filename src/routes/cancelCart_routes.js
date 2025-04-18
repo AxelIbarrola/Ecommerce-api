@@ -1,11 +1,11 @@
 const router = require('express').Router();
 const { verifyToken } = require('../middlewares/token_verify');
-const { checkout } = require('../controllers/checkout_controller')
+const { cancelCart } = require('../controllers/cancelCart_controller')
 
-router 
-.patch('/checkout',
+router
+.patch('/cancel',
     verifyToken,
-    checkout
+    cancelCart
 )
 
 module.exports = router
