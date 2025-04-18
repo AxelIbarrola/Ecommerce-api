@@ -265,6 +265,8 @@ Authorization: Bearer <tu_token>
 + `completed`: se realizó el checkout.
 + `canceled`: el usuario canceló la compra.
 
+## Estructura del proyecto 
+
 ```bash
 ├── src/
 │   ├── config/            # Configuración de la base de datos
